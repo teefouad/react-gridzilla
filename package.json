@@ -1,0 +1,70 @@
+{
+  "name": "react-gridzilla",
+  "version": "0.1.7",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "build:commonjs": "babel src --out-dir lib",
+    "build:umd": "cross-env FILE_NAME=react-gridzilla webpack",
+    "build:umd:min": "cross-env NODE_ENV=production npm run build:umd",
+    "clean": "rimraf lib dist",
+    "lint": "eslint src --ext .js,.jsx",
+    "test": "jest",
+    "coverage": "npm test -- --coverage",
+    "posttest": "npm run lint",
+    "prepublishOnly": "npm test && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "analyze": "npm run build:umd:min --profile --json > stats.json && webpack-bundle-analyzer ./stats.json && rm ./stats.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teefouad/react-gridzilla.git"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "author": "Mostafa <tee.fouad@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teefouad/react-gridzilla/issues"
+  },
+  "homepage": "https://github.com/teefouad/react-gridzilla#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/cli": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "@types/node": "^12.7.5",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.4.0",
+    "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.4.0",
+    "webpack": "^4.29.6",
+    "webpack-bundle-analyzer": "^3.5.1",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.17",
+    "@emotion/core": "^10.0.17",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
