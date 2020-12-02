@@ -11,7 +11,7 @@ const Container = ({
   ...props
 }) => {
   const responsiveProps = getResponsiveProps(
-    ({ breakpointProps, breakpointWidth }) => {
+    ({ breakpointProps, breakpointName, breakpointWidth }) => {
       const sizes = getConfig('container.maxWidth');
       const sortedSizes = Object.values(sizes).sort((a, b) => a - b);
       const sizeShorthand = Object.keys(sizes).find(v => breakpointProps[v] === true);
@@ -40,7 +40,7 @@ const Container = ({
         margin-left: auto;
 
         /* Add side padding. */
-        padding: 0 ${getCSSLength(getConfig('container.padding'))};
+        padding: 0 ${getCSSLength(getConfig('container.padding')[breakpointName])};
         
         /* Avoid overflowing by keeping the container at */
         /* max-width 100% of its parent. */

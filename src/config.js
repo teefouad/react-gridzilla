@@ -9,7 +9,13 @@ const config = {
     xl: 1200,
   },
   container: {
-    padding: 20,
+    padding: {
+      xs: 20,
+      sm: 20,
+      md: 20,
+      lg: 20,
+      xl: 20,
+    },
     minWidth: 240,
     maxWidth: {
       fluid: null,
